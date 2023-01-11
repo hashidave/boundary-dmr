@@ -2,7 +2,7 @@ resource "boundary_scope" "project" {
   name                   = "Basic Boundary Demo"
   description            = "First Ever Boundary Demo"
   scope_id               = var.se_demo_scope
-  auto_create_admin_role = true
+  #auto_create_admin_role = true
 }
 
 
