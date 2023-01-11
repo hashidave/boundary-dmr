@@ -5,6 +5,15 @@ resource "boundary_scope" "project" {
   #auto_create_admin_role = true
 }
 
+# Grant rights to the project scope to my personal account
+resource "boundary_role" "project_admin" {
+  name          = "SE Project Admin"
+  description   = "Admin for the SE Project"
+  principal_ids = ["u_TGHTZxHxiC"]
+  grant_strings = ["id=*;type=*;actions=read"]
+  scope_id      = boundary_scope.project.id
+}
+
 
 resource "boundary_host_catalog_plugin" "host_catalog" {
   name            = "Dynamically Generated Catalog"
