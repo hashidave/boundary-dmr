@@ -21,3 +21,14 @@ variable "se_demo_scope"{
   description = "The scope that I run all demos under"
   default="o_cDR15maeYo"
 }
+
+variable "AWS_ACCESS_KEY_BOUNDARY_USER"{
+  description = "Access key for boundary IAM user"
+  default="o_cDR15maeYo"
+}
+
+
+variable "AWS_SECRET_KEY_BOUNDARY_USER"{
+  description = "Secret for boundary IAM user"
+  default="o_cDR15maeYo"
+}
