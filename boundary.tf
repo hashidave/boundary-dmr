@@ -20,8 +20,8 @@ resource "boundary_host_catalog_plugin" "host_catalog" {
   # recommended to pass in aws secrets using a file() or using environment variables
   # the secrets below must be generated in aws by creating a aws iam user with programmatic access
   secrets_json = jsonencode({
-    "access_key_id"     = "AWS_ACCESS_KEY_BOUNDARY_USER"
-    "secret_access_key" = "AWS_SECRET_KEY_BOUNDARY_USER"
+    "access_key_id"     = var.AWS_ACCESS_KEY_BOUNDARY_USER
+    "secret_access_key" = var.AWS_SECRET_KEY_BOUNDARY_USER
   })
 }
 
