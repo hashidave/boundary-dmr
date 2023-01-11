@@ -7,6 +7,7 @@ resource "boundary_scope" "project" {
 
 
 resource "boundary_host_catalog_plugin" "host_catalog" {
+  count=0
   name            = "Dynamically Generated Catalog"
   description     = ""
   scope_id        = boundary_scope.project.id
