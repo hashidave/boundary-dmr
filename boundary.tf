@@ -16,7 +16,7 @@ resource "boundary_role" "project_admin" {
 
 
 resource "boundary_host_catalog_plugin" "host_catalog" {
-  name            = "Dynamically Generated Catalog"
+  name            = "Dynamic AWS Hosts - us-east-2"
   description     = ""
   scope_id        = boundary_scope.project.id
   plugin_name     = "aws"
@@ -34,11 +34,12 @@ resource "boundary_host_catalog_plugin" "host_catalog" {
   })
 }
 
-resource "boundary_host_set_plugin" "host_set" {
-  name            = "Dynamic Host Set"
-  host_catalog_id = boundary_host_catalog_plugin.host_catalog.id
-  attributes_json = jsonencode({ "filters" = "tag:host-set=DMR_BOUNDARY_DEMO" })
-}
+# going to let the actual dynamic infra project create the host set
+#resource "boundary_host_set_plugin" "host_set" {
+#  name            = "Dynamic Host Set"
+#  host_catalog_id = boundary_host_catalog_plugin.host_catalog.id
+#  attributes_json = jsonencode({ "filters" = "tag:host-set=DMR_BOUNDARY_DEMO" })
+#}
 
 
 
