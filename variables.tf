@@ -5,7 +5,10 @@
 # Terraform code. If you create a variable with no default, the user will be
 # prompted to enter it (or define it via config file or command line flags.)
 
-
+# should be dev or production
+variable "environment"{
+  default = "dev"
+}
 
 variable "boundary_catalog_id" {
   description = "the catalog we put the hosts into"
