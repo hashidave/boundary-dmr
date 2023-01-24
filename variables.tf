@@ -10,28 +10,38 @@ variable "environment"{
   default = "dev"
 }
 
-variable "boundary_catalog_id" {
-  description = "the catalog we put the hosts into"
-  default     = ""
+# The auth method ID for the Boundary "tf-workspace" user
+variable "boundary_auth_method_id"{
+  default = "ampw_Sce2pnCbl2"
 }
 
+# the Boundary user principal IDs for anyone who should have acces to our project
+variable "admin_principals"{
+  default=["u_TGHTZxHxiC"]
+}
+
+
+# TODO:  Pull this out of vault.  I have stored in HCP under boundary-env/tf-workspace
 variable "TF_WORKSPACE_PWD" {
  description = "boundary user password"
  default     = ""
 }
 
-variable "se_demo_scope"{
-  description = "The scope that I run all demos under"
-  default="o_cDR15maeYo"
+# TODO:  We really ought to create the org as part of this project. 
+# Future Dave can do that
+variable "se_org_scope"{
+  description = "The org scope that I run all demos under"
+  default="xo_cDR15maeYo"
 }
+
 
 variable "AWS_ACCESS_KEY_BOUNDARY_USER"{
   description = "Access key for boundary IAM user"
-  default="o_cDR15maeYo"
+  default="nochance"
 }
 
 
 variable "AWS_SECRET_KEY_BOUNDARY_USER"{
   description = "Secret for boundary IAM user"
-  default="o_cDR15maeYo"
+  default="narnia"
 }

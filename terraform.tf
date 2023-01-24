@@ -9,7 +9,7 @@ terraform {
   hostname     = "app.terraform.io"
 
   workspaces {
-    name = "Boundary-Environment"
+    tags = ["boundary-environment"]
   }
  }
 }

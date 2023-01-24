@@ -1,15 +1,15 @@
 resource "boundary_scope" "project" {
-  name                   = "Basic Boundary Demo"
-  description            = "First Ever Boundary Demo"
-  scope_id               = var.se_demo_scope
+  name                   = "Basic Boundary Demo ${var.environment}"
+  description            = "First Ever Boundary Demo - ${var.environment}"
+  scope_id               = var.se_org_scope
   #auto_create_admin_role = true
 }
 
-# Grant rights to the project scope to my personal account
+# Grant rights to the project scope to you, the admins
 resource "boundary_role" "project_admin" {
   name          = "SE Project Admin ${var.environment}"
-  description   = "Admin for the SE Project"
-  principal_ids = ["u_TGHTZxHxiC"]
+  description   = "Admin for the Boundary Demo ${var.environment} Project"
+  principal_ids = var.admin_principals
   grant_strings = ["id=*;type=*;actions=*"]
   scope_id      = boundary_scope.project.id
 }
