@@ -31,7 +31,7 @@ variable "TF_WORKSPACE_PWD" {
 # Future Dave can do that
 variable "se_org_scope"{
   description = "The org scope that I run all demos under"
-  default="xo_cDR15maeYo"
+  default="o_cDR15maeYo"
 }
 
 
