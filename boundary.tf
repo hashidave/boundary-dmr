@@ -7,7 +7,7 @@ resource "boundary_scope" "project" {
 
 # Grant rights to the project scope to my personal account
 resource "boundary_role" "project_admin" {
-  name          = "SE Project Admin"
+  name          = "SE Project Admin ${var.environment}"
   description   = "Admin for the SE Project"
   principal_ids = ["u_TGHTZxHxiC"]
   grant_strings = ["id=*;type=*;actions=*"]
@@ -16,8 +16,8 @@ resource "boundary_role" "project_admin" {
 
 
 resource "boundary_host_catalog_plugin" "host_catalog" {
-  name            = "Dynamic AWS Hosts - us-east-2"
-  description     = ""
+  name            = "Dynamic AWS Hosts - us-east-2 ${var.environment}"
+  description     = "${var.environment} dynamic aws host set"
   scope_id        = boundary_scope.project.id
   plugin_name     = "aws"
   attributes_json = jsonencode({ 
@@ -33,14 +33,5 @@ resource "boundary_host_catalog_plugin" "host_catalog" {
     "secret_access_key" = var.AWS_SECRET_KEY_BOUNDARY_USER
   })
 }
-
-# going to let the actual dynamic infra project create the host set
-#resource "boundary_host_set_plugin" "host_set" {
-#  name            = "Dynamic Host Set"
-#  host_catalog_id = boundary_host_catalog_plugin.host_catalog.id
-#  attributes_json = jsonencode({ "filters" = "tag:host-set=DMR_BOUNDARY_DEMO" })
-#}
-
-
 
 
