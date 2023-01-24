@@ -2,7 +2,8 @@ resource "boundary_scope" "project" {
   name                   = "Basic Boundary Demo ${var.environment}"
   description            = "First Ever Boundary Demo - ${var.environment}"
   scope_id               = var.se_org_scope
-  #auto_create_admin_role = true
+  auto_create_admin_role   = true
+  auto_create_default_role = true
 }
 
 # Grant rights to the project scope to you, the admins
