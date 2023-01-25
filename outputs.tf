@@ -8,3 +8,7 @@ output "host_catalog" {
 output "org_scope"{
    value=var.se_org_scope
 }
+
+output "demo-project-id"{
+  value=boundary_scope.project.id
+}
