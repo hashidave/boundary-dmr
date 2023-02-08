@@ -12,3 +12,10 @@ output "org_scope"{
 output "demo-project-id"{
   value=boundary_scope.project.id
 }
+
+#export this so that other workspaces don't have to keep this variable 
+#lying around everywhere
+output "tf-workspace-pwd"{
+  sensitive=true
+  value = var.TF_WORKSPACE_PWD
+}
