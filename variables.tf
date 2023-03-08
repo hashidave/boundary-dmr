@@ -12,12 +12,10 @@ variable "environment"{
 
 # The auth method ID for the Boundary "tf-workspace" user
 variable "boundary_auth_method_id"{
-  default = "ampw_Sce2pnCbl2"
 }
 
 # the Boundary user principal IDs for anyone who should have acces to our project
 variable "admin_principals"{
-  default=["u_TGHTZxHxiC"]
 }
 
 
@@ -31,7 +29,6 @@ variable "TF_WORKSPACE_PWD" {
 # Future Dave can do that
 variable "se_org_scope"{
   description = "The org scope that I run all demos under"
-  default="o_cDR15maeYo"
 }
 
 
@@ -46,4 +43,9 @@ variable "AWS_SECRET_KEY_BOUNDARY_USER"{
   default="narnia"
 }
 
-# This is a garbage change to see if we can get the repos in sync
+variable "boundary_addr"{
+}
+
+variable "boundary_login_name" {
+  default= "tf-workspace"
+}
